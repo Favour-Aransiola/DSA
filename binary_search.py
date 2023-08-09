@@ -17,7 +17,5 @@ def binary_search(array, search_item):
         else:
             high = mid-1 # # checks if our guess is greater than than the search item, adjusts the high index
     return None # The search item is not found
-
-
 print(binary_search([1,2,3,4,5,6,7,8],5)) # Used to test, should return 4
 
