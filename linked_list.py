@@ -54,18 +54,29 @@ class LinkedList:
     
     # Remove the element at the last Index:
     def removeElementAtLast(self):
-        previousNode =self.head
-        currentNode = previousNode.nextNode
+        lastNode = self.head
+        currentNode =lastNode.nextNode
+        
         if(currentNode==None):
             self.head =None
             return 
-        while currentNode !=None:
+        while currentNode.nextNode !=None:
             
-            previousNode = currentNode
-            currentNode =currentNode.nextNode
-            print(currentNode, previousNode)
+            lastNode = currentNode
+            currentNode =lastNode.nextNode
+        lastNode.nextNode = None
             
-        previousNode=None
+    def removeElementAtIndex(self,index):
+        lastElement= self.head
+        currentElement = lastElement.nextNode
+
+        for i in range(index-1):
+            lastElement = currentElement
+            currentElement = lastElement.nextNode
+        lastElement.nextNode = currentElement.nextNode
+            
+            
+
 
 list1= LinkedList()
 node1 = Node("Mon")
@@ -81,6 +92,8 @@ list1.insertAtBeginning(node4)
 list1.appendNode(Node("Thur"))
 list1.appendNode(Node("Fri"))
 
-list1.appendAtIndex(Node("Break"),2)
-list1.removeElementAtLast()
-# list1.listPrint()
+# list1.appendAtIndex(Node("Break"),2)
+# list1.removeElementAtLast()
+# list1.removeElementAtLast()
+list1.removeElementAtIndex(3)
+list1.listPrint()
