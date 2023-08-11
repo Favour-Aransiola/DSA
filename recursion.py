@@ -18,3 +18,36 @@ def recursion(n):
 
 # Test call for the recursive function
 recursion(5)
+
+# A recursive function for sum of array
+def sum_of_array(array):
+    if len(array)>1:
+        return array.pop() + sum_of_array(array)
+    else:
+        return array[0]
+
+print(sum_of_array([2,3,4]))    
+
+# A recursive function for 
+def noOfElements(array):
+    if len(array)!=0:
+        array.pop()
+        return 1+noOfElements(array)
+    else:
+        return 0
+print(noOfElements([1,2,3,4,5]))
+
+def maxNumber(array):
+    
+    if len(array)==1:
+        return array[0]
+    else:
+        max = maxNumber(array[1:])
+        if array[0]>max:
+            return array[0]
+        else:
+            return max
+print(maxNumber([1,2,7,4,5]))
+    
+    
+
